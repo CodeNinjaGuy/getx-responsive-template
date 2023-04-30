@@ -1,4 +1,4 @@
-name: CI
+name: Autobuild
 on:
   push:
     branches:
@@ -28,4 +28,26 @@ jobs:
           artifacts: "build/macos/Build/Products/Release/superadmin.zip" 
           tag: v1.0.${{ github.run_number }}
           token: ${{ secrets.TOKEN }}
-
+  build_windows:
+    name: Build Flutter (MACOS)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: "12.x"
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: "stable"
+      - run: flutter clean    
+      - run: flutter pub get
+      - run: |
+          flutter build windows --release 
+          cd build/windows/Build/Products/Release/
+          zip -r superadmin.zip superadmin.exe
+      - name: Push to Releases
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "build/windows/Build/Products/Release/superadmin.zip" 
+          tag: Windows v1.0.${{ github.run_number }}
+          token: ${{ secrets.TOKEN }}        
