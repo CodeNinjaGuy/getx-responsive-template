@@ -6,7 +6,7 @@ on:
 
 jobs:
   build_ios:
-    name: Build Flutter (MACOS)
+    name: Build Flutter (for MACOS)
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
@@ -29,7 +29,7 @@ jobs:
           tag: v1.0.${{ github.run_number }}
           token: ${{ secrets.TOKEN }}
   build_windows:
-    name: Build Flutter (MACOS)
+    name: Build Flutter (for Windows)
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
