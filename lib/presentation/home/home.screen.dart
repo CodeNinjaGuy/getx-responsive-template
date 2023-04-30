@@ -28,7 +28,7 @@ class ResponsiveDesign extends GetResponsiveView<HomeController> {
   Widget renderTablet({required String text}) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('HomeScreen'),
+        title: const Text('Superadmin'),
         centerTitle: true,
       ),
       body: Center(
@@ -116,7 +116,7 @@ class ResponsiveDesign extends GetResponsiveView<HomeController> {
   Widget renderDesktop({required String text}) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('HomeScreen'),
+        title: const Text('Superadmin'),
         centerTitle: true,
       ),
       body: Center(
@@ -146,7 +146,7 @@ class ResponsiveDesign extends GetResponsiveView<HomeController> {
                         itemBuilder: (context, index) {
                           return Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Container(color: Colors.lightBlue),
+                            child: Container(decoration: const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20)),color: Colors.lightBlue)),
                           );
                         },
                       ),
