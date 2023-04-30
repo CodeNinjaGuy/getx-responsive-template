@@ -43,7 +43,7 @@ jobs:
       - run: flutter pub get
       - run: |
           flutter build windows --release  
-          cd build/windows/x64/Release/
+          cd build/windows/x64/Release/ALL_BUILD/
           ls
           zip -r superadmin.zip superadmin.exe
       - name: Push to Releases
