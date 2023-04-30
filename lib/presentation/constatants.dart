@@ -19,10 +19,17 @@ var myDrawer = Drawer(
   elevation: 0,
   child: Column(
     children: [
-     const DrawerHeader(
-        child: Icon(
-          Icons.favorite,
-          size: 64,
+      DrawerHeader(
+        
+        child: Column(
+          children:const  [
+            CircleAvatar(child: Icon(Icons.person)),
+
+            Padding(
+              padding: EdgeInsets.only(top:4.0),
+              child: Text("v1.0.11",style: TextStyle(fontSize: 10.0),),
+            )
+          ],
         ),
       ),
       Padding(
