@@ -21,11 +21,11 @@ jobs:
       - run: |
           flutter build macos --release 
           cd build/macos/Build/Products/Release/
-          zip -r superadmin.app release
+          zip -r superadmin.zip superadmin.app
       - name: Push to Releases
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "build/macos/Build/Products/Release/superadmin.ipa"
+          artifacts: "build/macos/Build/Products/Release/superadmin.zip"
           tag: v1.0.${{ github.run_number }}
           token: ${{ secrets.TOKEN }}
 
