@@ -42,7 +42,7 @@ jobs:
       - run: flutter clean    
       - run: flutter pub get
       - run: |
-          flutter build windows --release 
+          flutter build windows --release  
           cd build/windows/x64/Release/
           ls
           zip -r superadmin.zip superadmin.exe
