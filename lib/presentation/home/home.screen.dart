@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:superadmin/presentation/constatants.dart';
+import 'package:superadmin/presentation/theme.dart';
 
 import 'controllers/home.controller.dart';
 
@@ -58,7 +59,7 @@ class ResponsiveDesign extends GetResponsiveView<HomeController> {
                         itemBuilder: (context, index) {
                           return Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Container(color: Colors.lightBlue),
+                            child: Container(),
                           );
                         },
                       ),
@@ -146,7 +147,7 @@ class ResponsiveDesign extends GetResponsiveView<HomeController> {
                         itemBuilder: (context, index) {
                           return Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Container(decoration: const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20)),color: Colors.lightBlue)),
+                            child: Container(decoration: const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20)),color: MyTheme.accentColor)),
                           );
                         },
                       ),
