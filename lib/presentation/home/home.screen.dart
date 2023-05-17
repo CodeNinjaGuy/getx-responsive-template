@@ -27,6 +27,8 @@ class ResponsiveDesign extends GetResponsiveView<HomeController> {
   }
 
   Widget renderTablet({required String text}) {
+
+  var imagePathList = ["assets/mol.png","assets/uckermark.png","assets/havelland.png","assets/other.png"];
     return Scaffold(
       appBar: AppBar(
         title: const Text('Superadmin'),
@@ -34,186 +36,194 @@ class ResponsiveDesign extends GetResponsiveView<HomeController> {
       ),
       body: Center(
         child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // open drawer
-            
-      
-            // first half of page
-            Expanded(
-              flex: 2,
-              child: Column(
-                children: [
-                  // first 4 boxes in grid
-                  AspectRatio(
-                    aspectRatio: 4,
-                    child: SizedBox(
-                      width: double.infinity,
-                      child: GridView.builder(
-                        itemCount: 4,
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 4),
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Container(),
-                          );
-                        },
-                      ),
-                    ),
-                  ),
-      
-                  // list of previous days
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        color: Colors.lightGreen,
-                        child: stuffLiestView()
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            // second half of page
-            Expanded(
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      height: 400,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: Colors.grey[400],
-                      ),
-                    ),
-                  ),
-                  // list of stuff
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          color: Colors.grey[200],
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // open drawer
+
+              // first half of page
+              Expanded(
+                flex: 2,
+                child: Column(
+                  children: [
+                    // first 4 boxes in grid
+                    AspectRatio(
+                      aspectRatio: 4,
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: GridView.builder(
+                          itemCount: 4,
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 4),
+                          itemBuilder: (context, index) {
+                            return Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(child:Image.asset(imagePathList[index],fit:BoxFit.contain ,),),
+                            );
+                          },
                         ),
                       ),
                     ),
-                  ),
-                ],
+
+                    // list of previous days
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                            color: Colors.lightGreen, child: stuffLiestView()),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+              // second half of page
+              Expanded(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: 400,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: Colors.grey[400],
+                        ),
+                      ),
+                    ),
+                    // list of stuff
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: Colors.grey[200],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
-        ),
-      ),drawer: myDrawer,);
+      ),
+      drawer: myDrawer,
+    );
   }
 
   Widget renderDesktop({required String text}) {
+    var imagePathList = ["assets/mol.png","assets/uckermark.png","assets/havelland.png","assets/other.png"];
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Superadmin'),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // open drawer
-            myDrawer,
-      
-            // first half of page
-            Expanded(
-              flex: 2,
-              child: Column(
-                children: [
-                  // first 4 boxes in grid
-                  AspectRatio(
-                    aspectRatio: 4,
-                    child: SizedBox(
-                      width: double.infinity,
-                      child: GridView.builder(
-                        itemCount: 4,
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 4),
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Container(decoration: const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20)),color: MyTheme.accentColor)),
-                          );
-                        },
-                      ),
-                    ),
-                  ),
-      
-                  // list of previous days
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        color:Colors.grey[400],
-                        child: stuffLiestView()
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            // second half of page
-            Expanded(
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      height: 400,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: Colors.grey[400],
-                      ),
-                    ),
-                  ),
-                  // list of stuff
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          color: Colors.grey[200],
+        appBar: AppBar(
+          title: const Text('Superadmin'),
+          centerTitle: true,
+        ),
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // open drawer
+                myDrawer,
+
+                // first half of page
+                Expanded(
+                  flex: 2,
+                  child: Column(
+                    children: [
+                      // first 4 boxes in grid
+                      AspectRatio(
+                        aspectRatio: 4,
+                        child: SizedBox(
+                          width: double.infinity,
+                          child: GridView.builder(
+                            itemCount: 4,
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 4),
+                            itemBuilder: (context, index) {
+                              return Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Container(
+                                  decoration: const BoxDecoration(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(20)),
+                                      color: MyTheme.accentColor),
+                                  child: Image.asset(imagePathList[index],fit:BoxFit.contain ,),
+                                ),
+                              );
+                            },
+                          ),
                         ),
                       ),
-                    ),
+
+                      // list of previous days
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                              color: Colors.grey[400], child: stuffLiestView()),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+                // second half of page
+                Expanded(
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          height: 400,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: Colors.grey[400],
+                          ),
+                        ),
+                      ),
+                      // list of stuff
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              color: Colors.grey[200],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
-        ),
-      ));
-      
-    
+          ),
+        ));
   }
 
   Obx stuffLiestView() {
-    return Obx(() => ListView.builder(
-                        itemCount: controller.myList.length,
-                        itemBuilder: (context, index) {
-                          return Card(
-                            elevation: 2,
-                            child:
-                                ListTile(title: Text(controller.myList[index]),trailing:IconButton(icon: Icon(Icons.add),onPressed: () => controller.addItem(),),)
-                          );
-                        },
-                      ),);
+    return Obx(
+      () => ListView.builder(
+        itemCount: controller.myList.length,
+        itemBuilder: (context, index) {
+          return Card(
+              elevation: 2,
+              child: ListTile(
+                title: Text(controller.myList[index]),
+                trailing: IconButton(
+                  icon: Icon(Icons.add),
+                  onPressed: () => controller.addItem(),
+                ),
+              ));
+        },
+      ),
+    );
   }
 }

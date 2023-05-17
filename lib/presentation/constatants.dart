@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:superadmin/presentation/home/controllers/home.controller.dart';
+import 'package:superadmin/presentation/login/controllers/login.controller.dart';
 
 var defaultBackgroundColor = Colors.grey[300];
 var appBarColor = Colors.grey[900];
@@ -70,11 +71,16 @@ var myDrawer = Drawer(
       ),
       Padding(
         padding: tilePadding,
-        child: ListTile(
-          leading: Icon(Icons.logout),
-          title: Text(
-            'L O G O U T',
-            style: drawerTextColor,
+        child: InkWell(
+          onTap: () {
+           Get.toNamed("login");
+          },
+          child: ListTile(
+            leading: Icon(Icons.logout),
+            title: Text(
+              'L O G O U T',
+              style: drawerTextColor,
+            ),
           ),
         ),
       ),
