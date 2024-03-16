@@ -27,7 +27,7 @@ jobs:
         with:
           artifacts: "build/macos/Build/Products/Release/superadmin.zip" 
           tag: v1.0.${{ github.run_number }}
-          token: ${{ secrets.TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
   build_windows:
     name: Build Flutter (for Windows)
     runs-on: windows-latest
@@ -50,4 +50,4 @@ jobs:
         with:
           artifacts: " build/windows/runner/Release/WindowsApp.zip" 
           tag: v1.1.${{ github.run_number }}
-          token: ${{ secrets.TOKEN }}        
+          token: ${{ secrets.GITHUB_TOKEN }}        
