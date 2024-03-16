@@ -44,11 +44,11 @@ jobs:
       - run: flutter pub get
       - run: |
           flutter build windows --release  
-          cd build/windows/runner/Release
+          cd build/windows/x64/runner/Release
           Compress-Archive -Path "flutter_windows.dll", "superadmin.exe","data" -DestinationPath "WindowsApp.zip"
       - name: Push to Releases
         uses: ncipollo/release-action@v1
         with:
-          artifacts: " build/windows/runner/Release/WindowsApp.zip" 
+          artifacts: " build/windows/x64/runner/Release/WindowsApp.zip" 
           tag: v1.1.${{ github.run_number }}
           token: ${{ secrets.GITHUB_TOKEN }}        
